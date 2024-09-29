@@ -2,26 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100dvh;
+  background: linear-gradient(to bottom right, #fff7ed, #fed7aa);
+  background-size: cover;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/assets/background.png") no-repeat center;
+  background-size: cover;
+  z-index: -1;
+}
+
+@media (max-width: 1440px) {
+  body::before {
+    background: url("/assets/background-notebook.png") no-repeat center;
+  } 
+}
+
+@media (max-width: 768px) {
+  body::before {
+    background: none;
+  } 
+}
+
+/* tailwind */
+
+.gridVideoInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+  "title buttons"
+  "description description";
+  place-items: center;
+}
+
+.titleGrid {
+  grid-area: title;
+}
+
+.buttonsGrid {
+  grid-area: buttons;
+}
+
+.descriptionGrid {
+  grid-area: description;
+}
+
+@media (max-width: 768px) {
+  .gridVideoInfo {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "buttons"
+    "title"
+    "description";
   }
 }
