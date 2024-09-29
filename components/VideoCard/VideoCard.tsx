@@ -13,7 +13,11 @@ const VideoCard = () => {
       setIsPlaying()
       if (videoRef.current) {
          videoRef.current.volume = 0.2
-         isPlaying ? videoRef.current.pause() : videoRef.current.play()
+         if (isPlaying) {
+            videoRef.current.pause()
+         }else {
+            videoRef.current.play()
+         }
       }
    }
 
