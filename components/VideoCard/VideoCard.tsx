@@ -30,9 +30,13 @@ const VideoCard = () => {
     <section className={`${linksVisible && 'animate-videoCardFade'} ${hidden} w-full min-h-screen py-10 px-[10px] items-center justify-center transition duration-300
             ${isDarkMode && 'bg-gray-900'}`}>
       <div className="relative max-w-3xl w-full rounded-lg shadow-lg overflow-hidden">
-         <div className={`relative ${isPlaying ? "" : "after:content-[''] after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-gray-950 after:bg-opacity-50 after:pointer-events-none"}`}>
-            {!isPlaying && <Play onClick={handlePlay} size={60} className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 text-pink-600 z-10 cursor-pointer p-3 bg-black bg-opacity-50 rounded-full"/>}
-            <video onEnded={handleHidden} src={`/videos/video-${id}.mp4`} ref={videoRef} onClick={handlePlay}/>
+         <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
+            <iframe
+               src="https://player.vimeo.com/video/1014122407?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
+               allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+               style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+               title="video-1">
+            </iframe>
          </div>
          <div className={`p-4 gridVideoInfo transition duration-300 xs:p-6 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
             <h2 className={`font-bold text-lg titleGrid transition duration-300 xs:text-xl ${isDarkMode ? 'text-white' : 'text-yellow-700'}`}>
