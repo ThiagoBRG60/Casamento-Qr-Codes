@@ -3,13 +3,11 @@ import { Moon, Pause, Play, Sun, X } from "lucide-react"
 import Button from "../Button/Button"
 import { useVideoStore } from "@/store/videoStore"
 import { useRef, useState } from "react"
-import { useParams } from "next/navigation"
 
 const VideoCard = () => {
    const {isPlaying, setIsPlaying, isDarkMode, setIsDarkMode, linksVisible, setLinksVisible} = useVideoStore()
    const [hidden, setHidden] = useState('flex')
    const videoRef = useRef<HTMLVideoElement | null>(null)
-   const {id} = useParams()
 
    const handlePlay = () => {
       setIsPlaying()
